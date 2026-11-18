@@ -49,7 +49,7 @@ LONG_SHORT_BOUNDS = (-0.3, 1.3)  # -0.3<=w_i<=1.3, Section 3 step 8
 CVAR_ALPHA_95 = 0.95  # CVaR confidence level, Section 3.2
 CVAR_ALPHA_99 = 0.99  # CVaR confidence level, Section 3.2
 
-# Optimizer settings: tolerance/iterations not specified in the paper (uncertainties).
+# Optimizer settings: tolerance and iteration caps are not specified in the paper.
 SLSQP_MAXITER = 500  # not specified in the paper; conservative SLSQP cap
 SLSQP_TOL = 1e-9  # not specified in the paper
 CVXPY_SOLVER = "CLARABEL"  # not specified in the paper; default LP/SOCP solver for CVaR
@@ -100,7 +100,7 @@ NIG_BETA_ALPHA_SLACK = 1e-8  # nonlinear constraint beta^2 - alpha^2 + slack <= 
 
 OPTION_S0 = 100.0  # normalized initial underlying price, Section 6.3
 OPTION_MONEYNESS_RANGE = (0.8, 1.2)  # K/S0 grid range, Section 6.4
-OPTION_MONEYNESS_POINTS = 100  # grid density; exact spacing not specified in the paper (uncertainties)
+OPTION_MONEYNESS_POINTS = 100  # grid density; exact spacing not specified in the paper
 OPTION_MATURITIES_DAYS = list(range(1, 201))  # T = 1..200 trading days, Section 6.4
 
 FFT_N_BASELINE = 2 ** 10  # baseline FFT grid size, Section 6.4
@@ -108,7 +108,7 @@ FFT_N_CONVERGENCE = [2 ** 10, 2 ** 11, 2 ** 12, 2 ** 13]  # convergence diagnost
 FFT_V_MAX = 575.0  # upper truncation of the integration grid, Section 6.4
 FFT_DAMPING_ALPHA = 0.45  # Carr-Madan damping parameter alpha_d, Section 6.4
 NO_ARBITRAGE_TOLERANCE = 1e-8  # Section 6.4 step 13
-IV_SMOOTHING_BANDWIDTH = None  # Gaussian-kernel bandwidth not specified in the paper (uncertainties);
+IV_SMOOTHING_BANDWIDTH = None  # Gaussian-kernel bandwidth not specified in the paper;
 # scipy.stats.gaussian_kde default (Scott's rule) is used.
 
 RANDOM_SEED = 42  # not specified in the paper; used only for reproducible numerical fallbacks
