@@ -1,0 +1,59 @@
+{
+  "k_reference": 100,
+  "k_grid": [
+    40,
+    50,
+    60,
+    70,
+    80,
+    90,
+    100,
+    110,
+    120,
+    130,
+    140,
+    150,
+    160,
+    170,
+    180,
+    190,
+    200
+  ],
+  "ci_z": 1.96,
+  "series": [
+    "DJIA",
+    "EWP",
+    "LS-MVP",
+    "LS-C95"
+  ],
+  "garch_fits": {
+    "DJIA": {
+      "n_obs": 753,
+      "n_negative_residuals": 376,
+      "garch_alpha1": 0.035492,
+      "garch_beta1": 0.958699,
+      "garch_persistence": 0.994191
+    },
+    "EWP": {
+      "n_obs": 753,
+      "n_negative_residuals": 372,
+      "garch_alpha1": 0.031521,
+      "garch_beta1": 0.959662,
+      "garch_persistence": 0.991182
+    },
+    "LS-MVP": {
+      "n_obs": 753,
+      "n_negative_residuals": 377,
+      "garch_alpha1": 0.024406,
+      "garch_beta1": 0.967041,
+      "garch_persistence": 0.991447
+    },
+    "LS-C95": {
+      "n_obs": 753,
+      "n_negative_residuals": 371,
+      "garch_alpha1": 0.052871,
+      "garch_beta1": 0.937735,
+      "garch_persistence": 0.990606
+    }
+  }
+}

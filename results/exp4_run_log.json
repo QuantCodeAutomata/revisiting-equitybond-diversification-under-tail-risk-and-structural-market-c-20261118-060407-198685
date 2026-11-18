@@ -1,0 +1,29 @@
+{
+  "EWP": {
+    "nobs": 752,
+    "garch_aic_per_obs": 1.8405152589700884,
+    "garch_bic_per_obs": 1.871251537719755,
+    "figarch_aic_per_obs": 1.8484779554225432,
+    "figarch_bic_per_obs": 1.885361489922143,
+    "garch_persistence": 0.9911824602262265,
+    "figarch_d": 0.2809213400356631
+  },
+  "LS-MVP": {
+    "nobs": 752,
+    "garch_aic_per_obs": 0.742967823588861,
+    "garch_bic_per_obs": 0.7737041023385275,
+    "figarch_aic_per_obs": 0.7513382411074158,
+    "figarch_bic_per_obs": 0.7882217756070156,
+    "garch_persistence": 0.9914468160409187,
+    "figarch_d": 0.2575136915178319
+  },
+  "LS-C95": {
+    "nobs": 752,
+    "garch_aic_per_obs": 0.12729119094879346,
+    "garch_bic_per_obs": 0.15802746969845993,
+    "figarch_aic_per_obs": 0.13595446046742263,
+    "figarch_bic_per_obs": 0.1728379949670224,
+    "garch_persistence": 0.9906063627532593,
+    "figarch_d": 0.5113330747954522
+  }
+}
