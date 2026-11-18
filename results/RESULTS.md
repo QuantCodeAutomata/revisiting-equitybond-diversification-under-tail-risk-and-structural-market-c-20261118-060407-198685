@@ -361,9 +361,14 @@ volatilities; implied volatilities in roughly the 0.105-0.158 range.
 * **Covariance estimator.** The paper does not specify whether the minimum-variance program
   uses the sample covariance matrix or a shrinkage estimator. This replication uses the
   sample covariance matrix of each 504-day window, as this is the baseline estimator
-  consistent with the stated formula `w'Sigma*w`. The identified sensitivity of the LS-MVP
-  strategy to this choice (see exp_2) suggests a shrinkage estimator could narrow the gap to
-  the paper, but this was not tested further within the scope of this replication.
+  consistent with the stated formula `w'Sigma*w`. A sensitivity check re-ran the full LS-MVP
+  rolling-window backtest with a Ledoit-Wolf shrinkage covariance matrix in place of the
+  sample covariance matrix at every window: the resulting terminal wealth (93.03) is within
+  0.5 wealth points of the sample-covariance result (92.58), and LS-MVP remains below EWP
+  (103.36) either way. This rules out the choice between the sample covariance matrix and a
+  shrinkage estimator as the driver of the LS-MVP ranking gap to the paper; the cause remains
+  the near-collinear-asset sensitivity and data-vintage difference described above, which
+  could not be isolated further within the scope of this replication.
 * **FIGARCH implementation.** AR(1)-FIGARCH(1,d,1) is fit with the `arch` package's native
   `vol="FIGARCH"` specification (Chung's parameterization, the same functional form the
   paper's Section 5.2 recursion describes), so no custom maximum-likelihood routine was
