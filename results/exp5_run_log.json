@@ -1,0 +1,65 @@
+{
+  "n_obs_log_returns": 1257,
+  "nig_params": {
+    "alpha": 68.16684929340246,
+    "beta": -18.825110374103822,
+    "delta": 0.0034196121755482533,
+    "mu": 0.0011723462125256586
+  },
+  "max_cf_discrepancy": 1.5003575269653048e-08,
+  "r_daily_continuous": 0.0001697305231899563,
+  "K1": 0.00021789756553566115,
+  "martingale_drift_c": -4.816704234570485e-05,
+  "n_maturities": 200,
+  "n_moneyness": 100,
+  "n_grid_points": 20000,
+  "n_nan_implied_vol": 78,
+  "pct_nan_implied_vol": 0.39,
+  "no_arbitrage_violations": {
+    "n_lower_violations": 20,
+    "max_lower_violation": 4.4560210177530037e-08,
+    "n_upper_violations": 0,
+    "max_upper_violation": 0.0,
+    "n_monotonicity_violations": 0,
+    "n_convexity_violations": 6,
+    "max_convexity_violation": 4.458181107087512e-08
+  },
+  "fft_convergence": [
+    {
+      "n_prev": 1024,
+      "n_next": 2048,
+      "max_abs_diff": 1.8308173095029048,
+      "mean_abs_diff": 1.828819380899866
+    },
+    {
+      "n_prev": 2048,
+      "n_next": 4096,
+      "max_abs_diff": 0.21117639013986533,
+      "mean_abs_diff": 0.21117578698669603
+    },
+    {
+      "n_prev": 4096,
+      "n_next": 8192,
+      "max_abs_diff": 0.0014099659582775814,
+      "mean_abs_diff": 0.0014099617439899592
+    }
+  ],
+  "non_massive_source": {
+    "OCIO": "yahoo",
+    "GDMA": "yahoo",
+    "VBAL.TO": "yahoo",
+    "XBAL.TO": "yahoo",
+    "ZBAL.TO": "yahoo",
+    "VGRO.TO": "yahoo",
+    "XGRO.TO": "yahoo",
+    "ZGRO.TO": "yahoo",
+    "VCNS.TO": "yahoo",
+    "VCIP.TO": "yahoo",
+    "ZCON.TO": "yahoo",
+    "XINC.TO": "yahoo",
+    "VDBA.AX": "yahoo",
+    "VDGR.AX": "yahoo",
+    "DBBF.AX": "yahoo",
+    "DGGF.AX": "yahoo"
+  }
+}

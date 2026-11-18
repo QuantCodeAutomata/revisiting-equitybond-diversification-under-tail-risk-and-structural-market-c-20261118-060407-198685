@@ -67,11 +67,11 @@ python -m pytest                         # also runs market-data tests (needs AP
 ## Running the experiments
 
 ```bash
-python -m exp.exp1_rolling_portfolios
-python -m exp.exp2_transaction_costs
-python -m exp.exp3_hill_tail_index
-python -m exp.exp4_garch_figarch
-python -m exp.exp5_nig_option_pricing
+python -m exp.exp1   # rolling-window portfolio optimization (Section 4.1/4.2)
+python -m exp.exp2   # transaction-cost sensitivity analysis (Section 4.3)
+python -m exp.exp3   # Hill tail-index estimation (Section 4.4)
+python -m exp.exp4   # GARCH vs. FIGARCH volatility persistence (Section 5)
+python -m exp.exp5   # NIG Levy option pricing and implied-volatility surface (Section 6)
 ```
 
 Each script writes its tables, plots and logs directly to `results/`. See

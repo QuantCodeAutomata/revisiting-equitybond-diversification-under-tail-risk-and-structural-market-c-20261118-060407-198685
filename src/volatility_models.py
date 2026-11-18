@@ -45,9 +45,23 @@ def fit_ar1_figarch(returns: pd.Series) -> ARCHModelResult:
 
 def per_observation_ic(result: ARCHModelResult) -> dict[str, float]:
     """Per-observation AIC/BIC, matching the ``rugarch`` reporting convention
-    referenced in Section 5.3 (total criterion divided by the sample size)."""
+    referenced in Section 5.3 (total criterion divided by the sample size).
+
+    ``result.aic``/``result.bic`` are computed on the RESCALE-d series used for
+    numerical fitting. Rescaling the data by a constant ``s`` shifts the
+    per-observation Gaussian log-likelihood by ``-log(s)`` (the Jacobian of the
+    change of variable), so the per-observation information criteria are
+    corrected by ``-2*log(RESCALE)`` to report them on the natural (unscaled
+    return) likelihood scale used in Section 5.3. The correction only shifts
+    the reported level; it leaves the GARCH-vs-FIGARCH ranking (identical
+    shift for both models) unchanged.
+    """
     n = result.nobs
-    return {"aic_per_obs": float(result.aic / n), "bic_per_obs": float(result.bic / n)}
+    jacobian = 2.0 * np.log(RESCALE)
+    return {
+        "aic_per_obs": float(result.aic / n - jacobian),
+        "bic_per_obs": float(result.bic / n - jacobian),
+    }
 
 
 def persistence(result: ARCHModelResult) -> float:

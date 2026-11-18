@@ -1,0 +1,2 @@
+n_lower_violations,max_lower_violation,n_upper_violations,max_upper_violation,n_monotonicity_violations,n_convexity_violations,max_convexity_violation
+20,4.4560210177530037e-08,0,0.0,0,6,4.458181107087512e-08
