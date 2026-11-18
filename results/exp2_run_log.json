@@ -1,0 +1,18 @@
+{
+  "cost_levels_bps": [
+    0,
+    5,
+    10,
+    20
+  ],
+  "n_out_of_sample_obs": 753,
+  "strategies": [
+    "LO-MVP",
+    "LO-C95",
+    "LO-C99",
+    "LS-MVP",
+    "LS-C95",
+    "LS-C99",
+    "EWP"
+  ]
+}

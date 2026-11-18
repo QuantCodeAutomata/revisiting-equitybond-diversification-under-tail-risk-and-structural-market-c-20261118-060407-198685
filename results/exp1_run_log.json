@@ -1,0 +1,84 @@
+{
+  "n_price_rows": 1258,
+  "date_range": [
+    "2020-01-02",
+    "2024-12-31"
+  ],
+  "universe_size": 30,
+  "rolling_window": 504,
+  "n_out_of_sample_obs": 753,
+  "out_of_sample_range": [
+    "2022-01-03",
+    "2024-12-31"
+  ],
+  "non_massive_source": {
+    "OCIO": "yahoo",
+    "GDMA": "yahoo",
+    "VBAL.TO": "yahoo",
+    "XBAL.TO": "yahoo",
+    "ZBAL.TO": "yahoo",
+    "VGRO.TO": "yahoo",
+    "XGRO.TO": "yahoo",
+    "ZGRO.TO": "yahoo",
+    "VCNS.TO": "yahoo",
+    "VCIP.TO": "yahoo",
+    "ZCON.TO": "yahoo",
+    "XINC.TO": "yahoo",
+    "VDBA.AX": "yahoo",
+    "VDGR.AX": "yahoo",
+    "DBBF.AX": "yahoo",
+    "DGGF.AX": "yahoo"
+  },
+  "n_forward_filled": 1346,
+  "warnings": {
+    "OCIO": [
+      "yahoo has 1258 bars vs massive 1176"
+    ],
+    "GDMA": [
+      "start moved to 2020-11-02",
+      "yahoo has 1258 bars vs massive 1047"
+    ],
+    "VBAL.TO": [
+      "yahoo has 1255 bars vs massive 0"
+    ],
+    "XBAL.TO": [
+      "yahoo has 1255 bars vs massive 0"
+    ],
+    "ZBAL.TO": [
+      "yahoo has 1255 bars vs massive 0"
+    ],
+    "VGRO.TO": [
+      "yahoo has 1255 bars vs massive 0"
+    ],
+    "XGRO.TO": [
+      "yahoo has 1255 bars vs massive 0"
+    ],
+    "ZGRO.TO": [
+      "yahoo has 1255 bars vs massive 0"
+    ],
+    "VCNS.TO": [
+      "yahoo has 1255 bars vs massive 0"
+    ],
+    "VCIP.TO": [
+      "yahoo has 1255 bars vs massive 0"
+    ],
+    "ZCON.TO": [
+      "yahoo has 1255 bars vs massive 0"
+    ],
+    "XINC.TO": [
+      "yahoo has 1255 bars vs massive 0"
+    ],
+    "VDBA.AX": [
+      "yahoo has 1266 bars vs massive 0"
+    ],
+    "VDGR.AX": [
+      "yahoo has 1266 bars vs massive 0"
+    ],
+    "DBBF.AX": [
+      "yahoo has 1266 bars vs massive 0"
+    ],
+    "DGGF.AX": [
+      "yahoo has 1266 bars vs massive 0"
+    ]
+  }
+}
