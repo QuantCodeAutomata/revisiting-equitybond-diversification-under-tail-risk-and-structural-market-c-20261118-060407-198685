@@ -78,10 +78,9 @@ Each script writes its tables, plots and logs directly to `results/`. See
 `results/RESULTS.md` for the realized configuration, the comparison with the
 paper's reported values, and every deviation from the paper.
 
-Full-paper-scale runs (where the executed configuration was reduced to fit
-the replication's time budget) are selected with `--full`; see
-`results/RESULTS.md` for which experiments this applies to and the estimated
-runtime of the full configuration.
+All five experiments run at the paper's full configuration: the complete
+30-ETF universe, the full 2020-2024 sample, and the full 504-day rolling
+window, so no `--full` flag or reduced-scale run is needed.
 
 ## Reproduce end to end
 
