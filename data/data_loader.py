@@ -114,7 +114,7 @@ def _tidy(wide: pd.DataFrame, details: list[dict]) -> pd.DataFrame:
         ticker, alias = detail["ticker"], detail.get("alias") or ""
         columns = {}
         for field in FIELDS:
-            for name in (f"{ticker}_{field}", f"{alias}_{field}", field):
+            for name in (f"{ticker}_{field}", f"{alias}_{field}", f"{ticker.lower()}_{field}", field):
                 if name in wide.columns:
                     columns[name] = field
                     break
@@ -241,6 +241,19 @@ def load_etf_prices_usd(
     )
     raw = bars.pivot(index="date", columns="ticker", values="close").sort_index()
 
+    # The master calendar is the U.S. trading calendar, taken from the native
+    # trading dates of the 16 U.S.-domiciled ETFs (Section 2.1: "Align all
+    # price observations to US trading dates"). The Canadian and Australian
+    # feeds (including the Yahoo backstop used for most .TO/.AX tickers) can
+    # carry a few extra non-U.S.-trading dates (local holidays, or a one-day
+    # date-line offset for the Sydney-listed ETFs); those are dropped here
+    # rather than forward-filled, and any U.S. trading date missing from a
+    # given ETF's own feed is forward-filled below.
+    us_trading_dates = pd.DatetimeIndex(
+        sorted(bars.loc[bars["ticker"].isin(config.US_TICKERS), "date"].unique())
+    )
+    raw = raw.reindex(us_trading_dates)
+
     fred = load_fred_series(
         [config.FX_CAD_PER_USD_SERIES, config.FX_USD_PER_AUD_SERIES, config.RISK_FREE_SERIES],
         config.SAMPLE_START, config.SAMPLE_END, use_cache=use_cache,
@@ -257,6 +270,7 @@ def load_etf_prices_usd(
 
     n_before = usd_prices.isna().sum().sum()
     usd_prices = usd_prices.ffill()  # forward-fill missing ETF prices, Section 2.1
+    usd_prices = usd_prices.dropna()  # drop any leading dates before an ETF's own listing
     meta["n_forward_filled"] = int(n_before - usd_prices.isna().sum().sum())
     meta["n_total_obs"] = int(usd_prices.shape[0] * usd_prices.shape[1])
 
