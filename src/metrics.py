@@ -17,10 +17,19 @@ def sharpe_ratio(excess_returns: np.ndarray) -> float:
 
 
 def sortino_ratio(excess_returns: np.ndarray) -> float:
-    """Sortino ratio = mean(excess returns) / downside semi-deviation (Section 4.1)."""
+    """Sortino ratio = mean(excess returns) / downside semi-deviation (Section 4.1).
+
+    When no observation falls below the target (``dsd == 0``), the ratio is
+    conventionally unbounded: +inf for a positive mean, -inf for a negative
+    mean, and 0 for a zero mean. This never occurs on the paper's realized
+    out-of-sample return series, only on edge-case inputs with no losses.
+    """
     downside = np.minimum(0.0, excess_returns)
     dsd = np.sqrt(np.mean(downside ** 2))
-    return float(np.mean(excess_returns) / dsd)
+    mean_excess = np.mean(excess_returns)
+    if dsd == 0.0:
+        return float(np.sign(mean_excess)) * np.inf if mean_excess != 0.0 else 0.0
+    return float(mean_excess / dsd)
 
 
 def rachev_ratio(excess_returns: np.ndarray, beta: float = 0.95, gamma: float = 0.95) -> float:
